@@ -1,6 +1,7 @@
+using FirstApplication;
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddSingleton<BankAccountStorage, InMemoryBankAccountStorage>();
 var app = builder.Build();
-
-app.MapGet("/", () => "Hello World!");
-
+app.MapBankAccountEndpoints();
 app.Run();
